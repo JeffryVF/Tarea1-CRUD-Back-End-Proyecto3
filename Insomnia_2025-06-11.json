@@ -1,0 +1,389 @@
+type: collection.insomnia.rest/5.0
+name: Tarea1-CRUD-Back-End-Proyecto3
+meta:
+  id: wrk_966975b52bb94c949356c4f68c183f27
+  created: 1749668885445
+  modified: 1749668927609
+collection:
+  - name: Producto
+    meta:
+      id: fld_2f43ea92f62b4f7191f028f2924ccad6
+      created: 1749526773176
+      modified: 1749527049727
+      sortKey: -1749526773176
+    children:
+      - url: "{{ _.base_url }}products"
+        name: Registrar producto
+        meta:
+          id: req_6234170fdd09402c9f30546a9c6c21a2
+          created: 1749525172993
+          modified: 1749668955868
+          isPrivate: false
+          sortKey: -1749530224643
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+                "name": "Smartphone Samsung Galaxy S22",
+                "description": "Teléfono inteligente de alta gama con cámara triple y pantalla AMOLED",
+                "price": 899.99,
+                "stock": 25,
+                "category": {
+                  "id": 2
+            		}
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7fb18b24e4944a22a85fcf679d8899a5',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}products"
+        name: Listar todos los productos
+        meta:
+          id: req_03edbc42ec774a3abd54258f8909fac1
+          created: 1749530220288
+          modified: 1749530387307
+          isPrivate: false
+          sortKey: -1749530220288
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7fb18b24e4944a22a85fcf679d8899a5',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}products/1"
+        name: Borrar producto
+        meta:
+          id: req_4231bcbbaffa4259ad448cc50dc85e7b
+          created: 1749530223345
+          modified: 1749609621610
+          isPrivate: false
+          sortKey: -1749530223345
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7fb18b24e4944a22a85fcf679d8899a5',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}products/1"
+        name: Actualizar producto
+        meta:
+          id: req_7b6c26dc2784447d87c67cc733f95aa3
+          created: 1749530224543
+          modified: 1749668962597
+          isPrivate: false
+          sortKey: -1749530224543
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |2-
+              {
+                "name": "Libro 'Cien Años de Soledad'",
+                "description": "Obra clásica de Gabriel García Márquez",
+                "price": 15.00,
+                "stock": 70,
+                "category": {
+                  "id": 2
+                }
+              }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7fb18b24e4944a22a85fcf679d8899a5',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}products/1"
+        name: Listar producto
+        meta:
+          id: req_06f9f636282d4da69c10d5cef1753369
+          created: 1749530253170
+          modified: 1749609596120
+          isPrivate: false
+          sortKey: -1749528502547.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7fb18b24e4944a22a85fcf679d8899a5',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Categoría
+    meta:
+      id: fld_bc80bc17ad904307870448a6c9aeb6d1
+      created: 1749526802396
+      modified: 1749527046759
+      sortKey: -1749526773226
+    children:
+      - url: "{{ _.base_url }}categories"
+        name: Registrar categoría
+        meta:
+          id: req_47fa3cbcc1f64e5086ff6f828a16c1ac
+          created: 1749526817448
+          modified: 1749529385189
+          isPrivate: false
+          sortKey: -1749526819465
+        method: POST
+        body:
+          mimeType: application/json
+          text: >2-
+              {
+                "name": "Electrónica",
+                "description": "Dispositivos electrónicos como teléfonos, laptops, y más"
+              }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7fb18b24e4944a22a85fcf679d8899a5',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}categories/1"
+        name: Actualizar categoría
+        meta:
+          id: req_9b406cdc253e4fa2a6912b462ff9f210
+          created: 1749527032358
+          modified: 1749529528259
+          isPrivate: false
+          sortKey: -1749526819365
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |2-
+              {
+                "name": "Libros",
+                "description": "Libros de ficción, no ficción, educativos, etc."
+              }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7fb18b24e4944a22a85fcf679d8899a5',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}categories/1"
+        name: Borrar categoría
+        meta:
+          id: req_406f8cee852544a1afb39b479e484029
+          created: 1749527064378
+          modified: 1749529668679
+          isPrivate: false
+          sortKey: -1749526819265
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7fb18b24e4944a22a85fcf679d8899a5',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}categories"
+        name: Listar todas las categorías
+        meta:
+          id: req_b47ec71e689d4697956ef08b011cfa33
+          created: 1749527087287
+          modified: 1749527533808
+          isPrivate: false
+          sortKey: -1749526819165
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7fb18b24e4944a22a85fcf679d8899a5',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}categories/1"
+        name: Listar categoría
+        meta:
+          id: req_ce2dc4959bdc40b9ac7856df651ea168
+          created: 1749527110888
+          modified: 1749609478405
+          isPrivate: false
+          sortKey: -1749526819065
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_7fb18b24e4944a22a85fcf679d8899a5',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - url: "{{ _.base_url }}auth/login"
+    name: Login User
+    meta:
+      id: req_2cbc343e4752446e9f93d37b78ef4664
+      created: 1748625694887
+      modified: 1749609459817
+      isPrivate: false
+      sortKey: -1749526773276
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "test@gmail.com", 
+        	"password": "test123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}auth/login"
+    name: Login Super Admin Role
+    meta:
+      id: req_940499f87ff446a489f8def5abff42ed
+      created: 1749609285884
+      modified: 1749609339899
+      isPrivate: false
+      sortKey: -1749609285884
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "super.admin@gmail.com", 
+        	"password": "superadmin123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_88828b0604eb4295a0df78ebc48517b3
+    created: 1747887953411
+    modified: 1747887953411
+environments:
+  name: Base Environment
+  meta:
+    id: env_4397a05140024d4cadaff78e6e2e89e6
+    created: 1747887953410
+    modified: 1749524884541
+    isPrivate: false
+  subEnvironments:
+    - name: Dev
+      meta:
+        id: env_f303ca1d1308495187043847de17ec38
+        created: 1749524898788
+        modified: 1749524912562
+        isPrivate: false
+        sortKey: 1749524898788
+      data:
+        base_url: http://localhost:8080/
+      color: "#0af564"
